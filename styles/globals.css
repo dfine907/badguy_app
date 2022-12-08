@@ -1,4 +1,14 @@
-html,
+/* ./styles/globals.css */
+/* these all gave me an error, but used ES lint ignore this warning */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Replaced the below stock model with Tailwind above */
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -23,4 +33,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */
