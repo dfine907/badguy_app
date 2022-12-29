@@ -17,7 +17,7 @@ export const useCriminals = () => {
   */
   useEffect(() => {
     fetch(
-      'https://api.fbi.gov/@wanted?pageSize=50&page=1&sort_on=modified&sort_order=desc'
+      'https://api.fbi.gov/@wanted?pageSize=5&page=1&sort_on=modified&sort_order=desc'
     )
       .then((res) => res.json())
       .then((json) => {

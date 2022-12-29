@@ -26,33 +26,46 @@ function Criminals() {
   //*** Should I store criminals in a state for the drop down list to re render????
 
   return (
-    <div>
-      <select className=' bg-orange-300' onChange={officeSelectionHandler}>
-        {offices.map((office) => (
-          <option key={office}>{office}</option>
-        ))}
-      </select>
+    // <div class="h-screen bg-gradient-to-b from-blue-200 to-blue-600">
+    // <div className="bg-[url('/public/images/holes.png')]">
+    <div className="bg-[url('../public/images/holes.png')]">
+      
+      
+      
+        <h1 className="text-center text-5xl text-blue-800">
+      
+          Welcome to The Most Wanted App
+        </h1>
+        <select
+          className="bg-orange-300 ml-3"
+          onChange={officeSelectionHandler}
+        >
+          {offices.map((office) => (
+            <option key={office}>{office}</option>
+          ))}
+        </select>
 
-      <div>
-        {filteredCrims.map((criminal) => (
-          <div key={criminal.uid}>
-            <Link href={`/criminals/${criminal.uid}`}>
-              <img src={criminal?.images?.[0]?.thumb} />
+        <div>
+          {filteredCrims.map((criminal) => (
+            <div key={criminal.uid}>
+              <Link href={`/criminals/${criminal.uid}`}>
+                <img src={criminal?.images?.[0]?.thumb} />
 
-              {criminal.remarks ? (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: criminal.remarks,
-                  }}
-                ></div>
-              ) : (
-                <p>N/A</p>
-              )}
-            </Link>
-          </div>
-        ))}
+                {criminal.remarks ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: criminal.remarks,
+                    }}
+                  ></div>
+                ) : (
+                  <p>N/A</p>
+                )}
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    
   )
 }
 
