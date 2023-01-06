@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useCriminals } from './hooks/useCriminals'
 import Link from 'next/link'
+import { chooseCriminal } from '../../ducks/criminals.ducks'
+
 function Criminals() {
+  const poi = useSelector((state) => state.criminals)
+
+  const dispatch = useDispatch()
+
   const { offices, criminals } = useCriminals()
   const [filteredCrims, setFilteredCrims] = useState([])
+  //added below const to sort field office data:
+  const sortedOffices = offices.sort()
+  console.log(sortedOffices)
 
-  function officeSelectionHandler(event) {
+  const officeSelectionHandler = (event) => {
     console.log(event.target.value)
     const cityOffice = event.target.value
     const crimData = criminals.filter((criminal) =>
@@ -15,39 +25,30 @@ function Criminals() {
     setFilteredCrims(crimData)
   }
 
-  //Need to do this 12/13/2022:
-  // criminals.filter((criminal) => {
-  //   criminal?.field_offices?.includes('miami')
-  // })
-  // filter on criminals by office
-  // user click on an office and the list of criminals is filtered by that office//use
-  //use select to re render and state, for filter
-
-  //*** Should I store criminals in a state for the drop down list to re render????
+  const setPoi = (criminal) => {
+    dispatch(chooseCriminal(criminal))
+  }
 
   return (
     // <div class="h-screen bg-gradient-to-b from-blue-200 to-blue-600">
-    // <div className="bg-[url('/public/images/holes.png')]">
-    <div className="bg-[url('../public/images/holes.png')]">
-      
-      
-      
+
+    <div className="">
+      <div className="bg-[url('../public/images/bullet-holes.png')]">
         <h1 className="text-center text-5xl text-blue-800">
-      
           Welcome to The Most Wanted App
         </h1>
         <select
           className="bg-orange-300 ml-3"
           onChange={officeSelectionHandler}
         >
-          {offices.map((office) => (
-            <option key={office}>{office}</option>
+          {offices.map((sortedOffice) => (
+            <option key={sortedOffice}>{sortedOffice}</option>
           ))}
         </select>
 
         <div>
           {filteredCrims.map((criminal) => (
-            <div key={criminal.uid}>
+            <div onClick={() => setPoi(criminal)} key={criminal.uid}>
               <Link href={`/criminals/${criminal.uid}`}>
                 <img src={criminal?.images?.[0]?.thumb} />
 
@@ -65,7 +66,7 @@ function Criminals() {
           ))}
         </div>
       </div>
-    
+    </div>
   )
 }
 
