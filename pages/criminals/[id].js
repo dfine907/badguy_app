@@ -13,6 +13,7 @@ function MoreInformation() {
   return (
     <div>
       <h1>More Information Page</h1>
+      <h2>{criminal.poi.remarks}</h2>
     </div>
   )
 }
