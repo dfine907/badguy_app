@@ -19,7 +19,7 @@ function MoreInformation() {
     criminal?.poi || {}
 
   return (
-    <div>
+    <div className='bg-indigo-500'>
       <h1>More Information Page</h1>
 
       <InfoCard
