@@ -19,15 +19,29 @@ function MoreInformation() {
     criminal?.poi || {}
 
   return (
-    <div className='bg-indigo-500'>
+    <div className='bg-blue-200'>
       <h1>More Information Page</h1>
 
+      {/* <InfoCard
+        pix={images?.[0]?.thumb}
+        remarks={remarks}
+        description={description}
+        warning={warning}
+      /> */}
+
+      <div className="p-10 mb-12 flex justify-between"> 
       <InfoCard
         pix={images?.[0]?.thumb}
         remarks={remarks}
         description={description}
         warning={warning}
-      />
+        
+      />  
+      </div>
+
+
+
+
     </div>
   )
 }
