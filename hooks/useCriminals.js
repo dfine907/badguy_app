@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { upperCase } from '../../../utils/upperCase'
+import { upperCase } from '../utils/upperCase'
 
 export const useCriminals = () => {
   const [criminals, setCriminals] = useState([])

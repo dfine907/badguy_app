@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useCriminals } from './hooks/useCriminals'
+import { useCriminals } from '../../hooks/useCriminals'
 import Link from 'next/link'
 import { chooseCriminal } from '../../ducks/criminals.ducks'
 import InfoCard from '../components/InfoCard'
@@ -18,9 +18,9 @@ function Criminals() {
   console.log(sortedOffices)
 
   const canonicalOffices = {
-    'Las Vegas': "lasvegas",
-    'New Orleans': "neworleans",
-    'New York': "newyork",
+    'Las Vegas': 'lasvegas',
+    'New Orleans': 'neworleans',
+    'New York': 'newyork',
   }
 
   const officeSelectionHandler = (event) => {
