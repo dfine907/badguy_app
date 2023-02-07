@@ -13,10 +13,10 @@ const InfoCard = ({
     <div bg-blue-500>
       <div className="flex items-center h-screen w-full justify-center">
         <div className="max-w-xs">
-          <div className="bg-white shadow-xl rounded-lg py-3">
-            <div className="photo-wrapper p-2">
+          <div className="bg-slate-200 shadow-4xl rounded-lg py-3 ">
+            <div className="photo-wrapper p-5" >
               <img
-                className="w-32 h-32 rounded-full mx-auto"
+                className="w-32 rounded-full mx-auto"
                 src={pix}
                 alt="person of interest pix"
               />

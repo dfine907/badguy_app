@@ -29,7 +29,7 @@ function MoreInformation() {
         warning={warning}
       /> */}
 
-      <div className="p-10 mb-12 flex justify-between"> 
+      <div> 
       <InfoCard
         pix={images?.[0]?.thumb}
         remarks={remarks}
