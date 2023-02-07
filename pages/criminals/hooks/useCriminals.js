@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react'
+import { upperCase } from '../../../utils/upperCase'
 
 export const useCriminals = () => {
   const [criminals, setCriminals] = useState([])
   const [offices, setOffices] = useState(new Set())
-
-  const upperCase = (str) => {
-    str[0].toUpperCase() + str.slice(1)
-  }
 
   //get a list of field offices from the data
   const canonicalOffices = {
@@ -37,6 +34,7 @@ export const useCriminals = () => {
 
   return {
     criminals,
+
     offices: [...offices],
   }
 }

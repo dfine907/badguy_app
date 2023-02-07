@@ -4,6 +4,7 @@ import { useCriminals } from './hooks/useCriminals'
 import Link from 'next/link'
 import { chooseCriminal } from '../../ducks/criminals.ducks'
 import InfoCard from '../components/InfoCard'
+import { upperCase } from '../../utils/upperCase'
 
 function Criminals() {
   const poi = useSelector((state) => state.criminals)
@@ -16,10 +17,18 @@ function Criminals() {
   const sortedOffices = offices.sort()
   console.log(sortedOffices)
 
+  const canonicalOffices = {
+    'Las Vegas': "lasvegas",
+    'New Orleans': "neworleans",
+    'New York': "newyork",
+  }
+
   const officeSelectionHandler = (event) => {
     const cityOffice = event.target.value
     const crimData = criminals.filter((criminal) =>
-      criminal?.field_offices?.includes(cityOffice)
+      criminal?.field_offices?.includes(
+        canonicalOffices[cityOffice] || cityOffice.toLowerCase()
+      )
     )
 
     setFilteredCrims(crimData)
@@ -41,16 +50,16 @@ function Criminals() {
       <h1 className="text-center text-5xl text-blue-800">
         Welcome to The Most Wanted App
       </h1>
-      <div className='flex justify-center'>
-      <select
-        className="bg-gray-50  border-gray-100 text-gray-900 text-2xl rounded-lg content-center focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 m-2
+      <div className="flex justify-center">
+        <select
+          className="bg-gray-50  border-gray-100 text-gray-900 text-2xl rounded-lg content-center focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 m-2
         shadow-2xl"
-        onChange={officeSelectionHandler}
-      >
-        {offices.map((sortedOffice) => (
-          <option key={sortedOffice}>{sortedOffice}</option>
-        ))}
-      </select>
+          onChange={officeSelectionHandler}
+        >
+          {offices.map((sortedOffice) => (
+            <option key={sortedOffice}>{sortedOffice}</option>
+          ))}
+        </select>
       </div>
 
       <div>
