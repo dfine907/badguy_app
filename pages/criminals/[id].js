@@ -19,8 +19,9 @@ function MoreInformation() {
     criminal?.poi || {}
 
   return (
-    <div className='bg-blue-200'>
-      <h1>More Information Page</h1>
+    
+    <div className='bg-blue-200 m-100'>
+      <h1 className='text-2xl text-blue-900 m-200'>More Information Page</h1>
 
       {/* <InfoCard
         pix={images?.[0]?.thumb}
