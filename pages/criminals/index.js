@@ -21,6 +21,7 @@ function Criminals() {
     'Las Vegas': 'lasvegas',
     'New Orleans': 'neworleans',
     'New York': 'newyork',
+    'Oklahoma City': 'Oklahomacity'
   }
 
   const officeSelectionHandler = (event) => {
@@ -46,7 +47,7 @@ function Criminals() {
   return (
     // <div class="h-screen bg-gradient-to-b from-blue-200 to-blue-600">
 
-    <div class="h-screen bg-gradient-to-b from-blue-200 to-blue-800 overflow-auto">
+    <div className="h-screen bg-gradient-to-b from-blue-200 to-blue-800 overflow-auto">
       <h1 className="text-center text-5xl text-blue-800">
         Welcome to The Most Wanted App
       </h1>
