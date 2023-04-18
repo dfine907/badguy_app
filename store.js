@@ -15,4 +15,5 @@ const enhancer = composeEnhancers(applyMiddleware(...middleware))
 
 const makeStore = () => createStore(rootReducer, enhancer)
 
+//used to integrate the Redux store with a Next.js application:
 export const wrapper = createWrapper(makeStore)

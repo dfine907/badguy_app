@@ -1,7 +1,6 @@
 // event name
 const choosePoi = 'CHOOSE_POI'
 
-// action used by the FE component
 export const chooseCriminal = (criminal) => (dispatch) => {
   dispatch({
     type: choosePoi,
